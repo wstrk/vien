@@ -1,0 +1,27 @@
+{
+  "workspaces": [
+    "src"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "bun run clean && bun run build:cjs && bun run build:esm && bun run build:types",
+    "build:cjs": "tsc --project ./tsconfig.build.json --module commonjs --outDir ./src/_cjs --removeComments --verbatimModuleSyntax false && printf '{\"type\":\"commonjs\"}' > ./src/_cjs/package.json",
+    "build:esm": "tsc --project ./tsconfig.build.json --module es2015 --outDir ./src/_esm && printf '{\"type\": \"module\",\"sideEffects\":false}' > ./src/_esm/package.json",
+    "build:types": "tsc --project ./tsconfig.build.json --module esnext --declarationDir ./src/_types --emitDeclarationOnly --declaration --declarationMap",
+    "clean": "rimraf src/_esm src/_cjs src/_types",
+    "changeset": "changeset",
+    "changeset:release": "bun run build && bun run prepublishOnly && changeset publish",
+    "changeset:version": "changeset version && bun scripts/updateVersion.ts && bun install --lockfile-only",
+    "prepublishOnly": "bun scripts/prepublishOnly.ts"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "bun-types": "latest",
+    "globby": "^14.0.0",
+    "rimraf": "^5.0.5",
+    "which-pm-runs": "^1.1.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
