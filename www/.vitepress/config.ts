@@ -6,9 +6,9 @@ import { sidebar } from './sidebar'
 const require = createRequire(import.meta.url)
 const pkg = require('../../src/package.json')
 
-const title = 'viem'
+const title = 'vien'
 const description =
-  'Build reliable Ethereum apps & libraries with lightweight, composable, & type-safe modules from viem.'
+  'Build reliable Starknet apps & libraries with lightweight, composable, & type-safe modules from vien.'
 
 export default defineConfig({
   lang: 'en-US',
@@ -33,7 +33,7 @@ export default defineConfig({
       'meta',
       {
         property: 'og:title',
-        content: `${title} · TypeScript Interface for Ethereum`,
+        content: `${title} · TypeScript Interface for Starknet`,
       },
     ],
     ['meta', { property: 'og:image', content: 'https://viem.sh/og-image.png' }],
@@ -56,7 +56,7 @@ export default defineConfig({
     algolia: {
       appId: 'B2GGTJJMD3',
       apiKey: '42f4bd06fd3343c9a742128af056bdf5',
-      indexName: 'viem',
+      indexName: 'vien',
     },
 
     editLink: {
@@ -68,7 +68,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023-present weth, LLC',
+      copyright: 'Copyright © 2023-present wstrk, LLC',
     },
 
     logo: { light: '/icon-light.png', dark: '/icon-dark.png' },
@@ -107,7 +107,7 @@ export default defineConfig({
     siteTitle: false,
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/wevm/viem' },
+      { icon: 'github', link: 'https://github.com/wstrk/vien' },
     ],
   },
 
